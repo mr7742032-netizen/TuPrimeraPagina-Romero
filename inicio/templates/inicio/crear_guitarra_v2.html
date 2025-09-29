@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mundo Guitarra</title>
+</head>
+<body>
+     <nav>
+        <a href={% url "inicio" %}>Inicio</a>
+        <a href={% url "crear_guitarra" %}>Crear Guitarra</a>
+        <a href={% url "listado_guitarras" %}>Guitarras</a>
+    </nav> 
+
+    <h1>Formulario de Creacion</h1>
+
+    <form action={% url "crear_guitarra" %} method="GET">
+        {% csrf_token %}
+
+        {{formulario}} 
+
+        <input type="submit" value="Crear">
+        {% comment %} <button>Crear</button> {% endcomment %}
+    </form>
+</body>
+</html>
