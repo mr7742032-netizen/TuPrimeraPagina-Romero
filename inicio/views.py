@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from inicio.models import Guitarras
 from inicio.forms import FormularioCreacionGuitarra
+
 def inicio(request):
     
     return render(request, 'inicio/inicio.html')
@@ -21,12 +22,12 @@ def crear_guitarra_v2(request):
     # print(request.POST)
     
     if request.method == "POST":
-        formulario=FormularioCreacionGuitarra(request.POST)
+        formulario = FormularioCreacionGuitarra(request.POST)
         if formulario.is_valid():
             marca_nueva = formulario.cleaned_data.get('marca')
             modelo_nueva = formulario.cleaned_data.get('modelo')    
             
-            guitarra = Guitarra(marca=marca_nueva, modelo=modelo_nueva)  
+            guitarra = Guitarras(marca=marca_nueva, modelo=modelo_nueva)  
             guitarra.save()
             
             return redirect("listado_guitarras")

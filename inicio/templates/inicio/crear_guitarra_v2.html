@@ -14,7 +14,7 @@
 
     <h1>Formulario de Creacion</h1>
 
-    <form action={% url "crear_guitarra" %} method="GET">
+    <form action={% url "crear_guitarra" %} method="POST">
         {% csrf_token %}
 
         {{formulario}} 
